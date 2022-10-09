@@ -7,10 +7,12 @@ class SourceSerializer(serializers.HyperlinkedModelSerializer):
         model = Source
         fields = ['content']
 
+
 class EuroRatesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = EuroRates
         fields = ['currency_name', 'rate', 'created_at']
+
 
 class ConvertSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

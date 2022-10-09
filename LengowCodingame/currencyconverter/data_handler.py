@@ -1,7 +1,5 @@
-from currencyconverter.models import Source, EuroRates
+from currencyconverter.models import EuroRates
 import json
-from django.utils.timezone import datetime
-import re
 
 
 def data_handler(cur_in, cur_out, amount):
@@ -36,9 +34,9 @@ def data_handler(cur_in, cur_out, amount):
                             cur_entry = [cur.currency_name, cur.rate]
                         if cur_out == cur.currency_name:
                             cur_out = [cur.currency_name, cur.rate]
-                    
+
                     t_cur_entry = 1/cur_entry[1]
                     t_cur_out = 1/cur_out[1]
-                    res = round(float(t_cur_entry * (1 / t_cur_out)) * int(amount), 2)
+                    res = round(float(t_cur_entry*(1/t_cur_out))*int(amount), 2)
                     answer = f"{amount} {cur_entry[0]} = {res} {cur_out[0]}"
                     return json.dumps({'answer': answer}, indent=4)
