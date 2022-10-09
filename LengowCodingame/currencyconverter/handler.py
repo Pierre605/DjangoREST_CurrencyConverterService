@@ -50,7 +50,6 @@ class CurrencyConverterHandler:
         root = ET.fromstring(last_xml.content)
         data = root[2][0]
         for child in data:
-            # print(child.attrib['currency'], child.attrib['rate'])
             data_list.append([child.attrib['currency'], child.attrib['rate']])
             
         for cur in data_list:
@@ -59,13 +58,7 @@ class CurrencyConverterHandler:
         return data_list
 
     def handle_convert(self):
-
-        # r = requests.post(django_url + suffixe + , data={'cur_in': 'USD', 'cur_out': 'JPY', 'amount': 2, 'res': '500', 'created_at': '2022-10-08 18:36:29.954280'})
-        # print(r.status_code, r.reason)
-        # print(json.loads(r.content))
-        # r = json.loads(r.content)
-        # print(type(r))
-        # print(r['res'])
+        
         django_url = "http://127.0.0.1:8000"
         suffixe = "/money/convert/"
         data_list = EuroRates.objects.all()
@@ -74,7 +67,7 @@ class CurrencyConverterHandler:
         for data in data_list:
             devises.append(data.currency_name)
 
-        input_query = input("enter query (ex: '15 EUR en USD'): ")
+        input_query = input("Entrez votre requête (ex: '15 EUR en USD'): ")
         regex_currencies = r'[A-Z]{3}'
         regex_amount = r'\d*\.?\d+'
 

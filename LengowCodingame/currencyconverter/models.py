@@ -27,20 +27,3 @@ class Convert(models.Model):
 	answer = models.CharField(max_length=50, null=True)
 	created_at = models.DateTimeField('created_at')
 
-
-# class ConvertToEuroQuerySet(models.QuerySet):
-# 	def search(self, query, user=None):
-# 		lookup = Q(currency_name__icontains=query)
-# 		qs = self.filter(lookup)
-# 		if user is not None:
-# 			qs = qs.filter(user=user)
-
-# 		return qs
-
-# class ConvertToEuroManager(models.Manager):
-# 	def get_queryset(self, *args, **kwargs):
-# 			return ConvertToEuroQuerySet(self.model, using=self.db)
-
-# 	def search(self, query, user=None):
-# 		return self.get_queryset().search(query, user=user)
-
