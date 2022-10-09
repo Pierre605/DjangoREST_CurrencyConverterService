@@ -1,0 +1,6 @@
+requests>=2.26
+flake8
+djangorestframework
+markdown
+django-filter
+regex
