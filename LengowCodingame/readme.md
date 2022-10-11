@@ -19,4 +19,4 @@ To query the API to convert an amount of money:
 >Run the shell script **query_service.sh** with ``sh initiate.sh`` for Linux, 
 or copy paste the command in the console for Windows os.
 
-The result of your query is displayed server console side.
+The result of your query is displayed server console side, as requested in the test instructions.
